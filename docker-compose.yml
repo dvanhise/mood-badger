@@ -1,14 +1,16 @@
 version: '3.7'
 services:
-  service:
+  moodbadger:
     build:
       context: .
       dockerfile: Dockerfile
     restart: always
     ports:
-      - 8080:8080
+      - 8000:8000
     environment:
-      - HTTP_SERVER_ADDR=:8080
+      - DJANGO_SECRET_KEY=django-insecure-#wv&2&)ui_l-7253k+yw#&tjamc+a-n9ei0@bl5l^r&fqe4
+      - DJANGO_DEBUG=False
+      - DJANGO_HOST=localhost
     logging:
       driver: "json-file"
       options:
